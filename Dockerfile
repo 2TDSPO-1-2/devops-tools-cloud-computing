@@ -18,7 +18,9 @@ WORKDIR /app
 
 RUN groupadd --system arkive \
     && useradd --system --gid arkive --home-dir /app --shell /usr/sbin/nologin arkive
+
 COPY --from=build /app/target/*.jar app.jar
+
 RUN chown -R arkive:arkive /app
 
 USER arkive
