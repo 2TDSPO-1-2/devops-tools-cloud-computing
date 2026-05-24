@@ -45,7 +45,7 @@ Principais benefícios:
 
 ## Arquitetura
 
-![Arquitetura Macro da solução Arkive em Azure, Docker Compose, API Java e Oracle XE](images/Devops-Fluxogram.png)
+![Arquitetura Macro da solução Arkive em Azure, Docker Compose, API Java e Oracle XE](images/devops-fluxograma.png)
 
 A arquitetura utiliza uma VM Linux na Azure executando Docker Compose. A API Java Spring Boot é exposta pela porta `8080` através do IP público da VM, enquanto o banco Oracle XE roda em um container separado e persiste seus dados no volume nomeado `arkive-oracle-data`.
 
@@ -72,7 +72,7 @@ Os principais arquivos da entrega DevOps estão disponíveis no repositório:
 - [Script Azure CLI](scripts/azure-vm.sh)
 - [Docker Compose YAML](docker-compose.yml)
 - [Dockerfile](Dockerfile)
-- [Imagem da Arquitetura](images/Devops-Fluxogram.png)
+- [Imagem da Arquitetura](images/devops-fluxograma.png)
 
 O script Azure CLI cria a infraestrutura em nuvem, abre a porta necessária para a API e instala Docker, Git, nano e demais ferramentas na VM.
 
