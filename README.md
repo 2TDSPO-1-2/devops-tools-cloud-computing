@@ -2,17 +2,30 @@
 
 ## Descrição do Projeto
 
-O **Arkive** é uma API REST desenvolvida em **Java 17 com Spring Boot** para gerenciamento de dados veterinários, incluindo responsáveis, animais, clínicas, veterinários, consultas, doenças, prescrições, protocolos preventivos e alertas.
+O **Arkive** é uma API REST desenvolvida em Java 17 com Spring Boot para gerenciamento de dados veterinários, incluindo responsáveis, animais, clínicas, veterinários, consultas, doenças, prescrições, protocolos preventivos e alertas.
 
-Este projeto foi utilizado na entrega da disciplina **DevOps Tools & Cloud Computing**, com foco na conteinerização em nuvem da solução Java Advanced.
+Este projeto foi utilizado na entrega da disciplina DevOps Tools & Cloud Computing, com foco na conteinerização em nuvem da solução Java Advanced.
 
-A aplicação é executada em uma **Máquina Virtual Linux na Azure**, utilizando **Docker Compose** para subir a API Java e o banco de dados Oracle XE em containers.
+A aplicação é executada em uma Máquina Virtual Linux na Azure, utilizando Docker Compose para subir a API Java e o banco de dados Oracle XE em containers.
+
+---
+
+## Integrantes
+
+| RM | Nome |
+|---|---|
+| RM561408 | Gustavo Crevelari Monteiro Porto |
+| RM561996 | Lucca de Araujo Gomes |
+| RM561671 | Rafaela Ferreira Santos |
+| RM566224 | Victor Sabelli Rocha Batista |
 
 ---
 
 ## Benefícios para o Negócio
 
-O Arkive oferece uma base centralizada para organização e rastreabilidade de informações relacionadas à saúde animal.
+O Arkive oferece uma base centralizada para organização e rastreabilidade de informações relacionadas à saúde animal, permitindo que dados de responsáveis, animais, clínicas, consultas e eventos clínicos sejam organizados de forma estruturada.
+
+Além dos benefícios funcionais da aplicação, a conteinerização da solução traz ganhos importantes para implantação, manutenção e evolução do sistema. Ao executar a API Java e o banco Oracle em containers, o ambiente se torna mais previsível, reproduzível e fácil de instalar em diferentes máquinas ou servidores em nuvem.
 
 Principais benefícios:
 
@@ -20,8 +33,13 @@ Principais benefícios:
 - Organização de responsáveis, animais, clínicas e consultas;
 - Histórico estruturado para acompanhamento da jornada animal;
 - Base preparada para futuras análises, relatórios e integrações;
-- Ambiente containerizado, facilitando implantação e reprodução da solução;
-- Persistência de dados utilizando banco Oracle containerizado com volume nomeado.
+- Ambiente padronizado com Docker, reduzindo problemas de configuração entre máquinas diferentes;
+- Implantação mais simples em nuvem, utilizando Docker Compose para subir API e banco com um único comando;
+- Maior previsibilidade entre ambiente local e ambiente em cloud;
+- Facilidade para recriar o ambiente em caso de falha, migração ou nova instalação;
+- Separação clara entre aplicação e banco de dados, utilizando containers independentes;
+- Persistência de dados utilizando banco Oracle containerizado com volume nomeado;
+- Melhor base para evolução futura da solução, incluindo automação, CI/CD e escalabilidade.
 
 ---
 
@@ -67,7 +85,7 @@ O Docker Compose define a execução da API Java, do banco Oracle XE, da rede Do
 ### 1. Criar a infraestrutura na Azure
 
 ```bash
-./scripts/azure-create-vm.sh
+./scripts/azure-vm.sh
 ```
 
 ### 2. Acessar a VM
@@ -124,7 +142,7 @@ http://<PUBLIC_IP>:8080/api/health
 
 ## Persistência de Dados
 
-O banco utilizado é o **Oracle XE containerizado**.
+O banco utilizado é o Oracle XE containerizado.
 
 A persistência é feita por meio de volume nomeado no Docker:
 
@@ -156,31 +174,18 @@ Ao final da entrega, a VM e seus recursos devem ser removidos conforme exigido.
 az group delete --name <RESOURCE_GROUP_NAME> --yes
 ```
 
-A evidência da remoção dos recursos deve ser incluída no PDF final.
-
 ---
 
 ## Links da Entrega
 
 Repositório GitHub:
 
-```text
-https://github.com/2TDSPO-1-2/devops-tools-cloud-computing
-```
+[Arkive API — DevOps Tools & Cloud Computing](https://github.com/2TDSPO-1-2/devops-tools-cloud-computing)
 
 Vídeo no YouTube:
 
-```text
-INSERIR_LINK_DO_VIDEO_AQUI
-```
+[Demonstração da Entrega — Arkive DevOps](https://www.youtube.com/watch?v=uEOBFWUaONs)
 
 ---
 
-## Integrantes
 
-| RM | Nome |
-|---|---|
-| RM561408 | Gustavo Crevelari Monteiro Porto |
-| RM561996 | Lucca de Araujo Gomes |
-| RM561671 | Rafaela Ferreira Santos |
-| RM566224 | Victor Sabelli Rocha Batista |
